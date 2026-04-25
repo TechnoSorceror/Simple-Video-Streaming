@@ -1,0 +1,9 @@
+{
+  "name": "LiveView",
+  "description": "Real-time wireless camera stream from phone to laptop using WebRTC.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": []
+}
