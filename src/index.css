@@ -1,1 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-display-lg: "Space Grotesk", sans-serif;
+  --font-body-reg: "Inter", sans-serif;
+  --font-data-mono: "Roboto Mono", monospace;
+  --font-header-md: "Space Grotesk", sans-serif;
+  --font-label-caps: "Space Grotesk", sans-serif;
+  
+  --color-surface-dim: #131314;
+  --color-surface-container: #201f20;
+  --color-inverse-on-surface: #313031;
+  --color-surface-tint: #4cd6ff;
+  --color-surface-container-low: #1c1b1c;
+  --color-on-primary: #003543;
+  --color-primary-fixed: #b7eaff;
+  --color-on-error: #690005;
+  --color-background: #131314;
+  --color-on-background: #e5e2e3;
+  --color-on-primary-fixed-variant: #004e60;
+  --color-surface-container-high: #2a2a2b;
+  --color-inverse-primary: #00677f;
+  --color-error-container: #93000a;
+  --color-tertiary: #ffd1cd;
+  --color-primary-fixed-dim: #4cd6ff;
+  --color-on-surface: #e5e2e3;
+  --color-primary: #a4e6ff;
+  --color-on-surface-variant: #bbc9cf;
+  --color-error: #ffb4ab;
+  --color-secondary-container: #feb700;
+  --color-on-primary-fixed: #001f28;
+  --color-outline-variant: #3c494e;
+  --color-primary-container: #00d1ff;
+  --color-on-primary-container: #00566a;
+  --color-secondary-fixed-dim: #ffba20;
+  --color-inverse-surface: #e5e2e3;
+  --color-on-secondary-container: #6b4b00;
+  --color-surface-container-lowest: #0e0e0f;
+  --color-on-tertiary-container: #a10013;
+  --color-on-secondary-fixed: #271900;
+  --color-surface-bright: #3a393a;
+  --color-surface-variant: #353436;
+  --color-on-tertiary: #680008;
+  --color-tertiary-fixed: #ffdad6;
+  --color-on-tertiary-fixed: #410003;
+  --color-surface: #131314;
+  --color-secondary: #ffdb9d;
+  --color-tertiary-container: #ffaaa2;
+  --color-on-error-container: #ffdad6;
+  --color-on-secondary-fixed-variant: #5e4200;
+  --color-secondary-fixed: #ffdea8;
+  --color-on-secondary: #412d00;
+  --color-tertiary-fixed-dim: #ffb3ad;
+  --color-on-tertiary-fixed-variant: #930010;
+  --color-surface-container-highest: #353436;
+  --color-outline: #859399;
+
+  --spacing-unit: 4px;
+  --spacing-gutter: 16px;
+  --spacing-margin: 24px;
+}
+
+@layer utilities {
+  .scanlines {
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.15) 1px, rgba(0,0,0,0.15) 3px);
+    pointer-events: none;
+  }
+  .grid-bg {
+    background-image: 
+        linear-gradient(to right, rgba(133, 147, 153, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(133, 147, 153, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .glow-input:focus {
+    box-shadow: 0 4px 16px -4px rgba(0, 209, 255, 0.25);
+    border-bottom-color: #00d1ff;
+  }
+  .btn-glow {
+    box-shadow: 0 0 20px -5px rgba(0, 209, 255, 0.4);
+  }
+  .btn-glow:hover {
+    box-shadow: 0 0 30px 0px rgba(0, 209, 255, 0.6);
+    text-shadow: 0 0 8px rgba(0, 86, 106, 0.8);
+  }
+  .flicker-transition {
+    transition: all 75ms ease-in-out;
+  }
+  .tech-grid {
+    background-image: 
+        linear-gradient(to right, rgba(0, 209, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 209, 255, 0.05) 1px, transparent 1px);
+    background-size: 8px 8px;
+  }
+  .hud-glass {
+    background-color: rgba(19, 19, 20, 0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid;
+    border-color: rgba(255, 255, 255, 0.15) rgba(40, 40, 43, 1) rgba(40, 40, 43, 1) rgba(255, 255, 255, 0.15);
+  }
+  .glass-panel {
+    background: rgba(32, 31, 32, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 1px solid var(--color-surface-container-lowest);
+    border-right: 1px solid var(--color-surface-container-lowest);
+  }
+  .code-box {
+    background-image: 
+        linear-gradient(var(--color-surface-container) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-surface-container) 1px, transparent 1px);
+    background-size: 16px 16px;
+    background-position: center;
+  }
+}
+
+/* Custom scrollbar to match aesthetic */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #131314; 
+}
+::-webkit-scrollbar-thumb {
+  background: #3c494e; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4cd6ff; 
+}
+
+body {
+  min-height: max(884px, 100dvh);
+}
